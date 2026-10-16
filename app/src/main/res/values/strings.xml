@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AmaApp</string>
+    <string name="tagline">Developer &amp; Tester Platform with IP Protection</string>
+    <string name="role_developer">Developer</string>
+    <string name="role_tester">Tester</string>
+    <string name="role_admin">Admin</string>
+    <string name="tab_apps">Explore</string>
+    <string name="tab_dashboard">Dashboard</string>
+    <string name="tab_forum">Community</string>
+    <string name="tab_blockchain">IP Vault</string>
+    <string name="tab_admin">Admin Panel</string>
+</resources>

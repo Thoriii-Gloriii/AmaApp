@@ -1,0 +1,6 @@
+{
+  "name": "AmaApp",
+  "description": "Developer & beta-tester platform for distributing APKs/iOS builds, managing versions & analytics, tester feedback forum, and blockchain IP timestamp verification.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
