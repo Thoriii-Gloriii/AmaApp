@@ -139,7 +139,7 @@ fun DeveloperDashboardScreen(
 
                 Button(
                     onClick = onUploadNewApp,
-                    colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D)),
+                    colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = AmaCream),
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.testTag("btn_dashboard_register_app")
                 ) {
@@ -578,7 +578,7 @@ fun FeedbackReportItemCard(
                                     }
                                 },
                                 shape = RoundedCornerShape(8.dp),
-                                colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D))
+                                colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = AmaCream)
                             ) {
                                 Text("Send Reply", fontWeight = FontWeight.Bold)
                             }

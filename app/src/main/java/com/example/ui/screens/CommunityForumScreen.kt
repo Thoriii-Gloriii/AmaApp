@@ -72,7 +72,7 @@ fun CommunityForumScreen(
                 Button(
                     onClick = onNewThreadClick,
                     shape = RoundedCornerShape(10.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D)),
+                    colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = AmaCream),
                     modifier = Modifier.testTag("btn_new_forum_thread")
                 ) {
                     Icon(Icons.Default.AddComment, contentDescription = null, modifier = Modifier.size(16.dp))

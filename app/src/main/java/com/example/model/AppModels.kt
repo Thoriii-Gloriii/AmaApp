@@ -1,18 +1,18 @@
 package com.example.model
 
 enum class AppPlatform(val label: String, val badgeColor: Long) {
-    ANDROID_APK("Android (APK / Play)", 0xFF00C853),
+    ANDROID_APK("Android (APK / Play)", 0xFF3F7A3A),
     IOS_IPA("iOS (IPA / TestFlight)", 0xFF007AFF),
-    DUAL("Android & iOS Dual", 0xFF7C4DFF)
+    DUAL("Android & iOS Dual", 0xFF6B7F3A)
 }
 
 enum class AppStatus(val label: String, val colorHex: Long) {
-    ACTIVE_BETA("Active Beta", 0xFF00E676),
-    OPEN_TESTING("Open Testing", 0xFF00E5FF),
-    CLOSED_TESTING("Closed Testing", 0xFFFFAB00),
-    STAGED_ROLLOUT("Staged Rollout", 0xFF7C4DFF),
+    ACTIVE_BETA("Active Beta", 0xFF3F7A3A),
+    OPEN_TESTING("Open Testing", 0xFF2F6F7C),
+    CLOSED_TESTING("Closed Testing", 0xFFB07A10),
+    STAGED_ROLLOUT("Staged Rollout", 0xFF6B7F3A),
     UNDER_REVIEW("Under Review", 0xFF9E9E9E),
-    FLAGGED("Flagged / Suspended", 0xFFFF5252)
+    FLAGGED("Flagged / Suspended", 0xFFC0443A)
 }
 
 data class AppBuild(
@@ -61,11 +61,11 @@ enum class FeedbackType(val label: String) {
 }
 
 enum class FeedbackSeverity(val label: String, val colorHex: Long) {
-    CRITICAL_CRASH("Critical Crash", 0xFFFF5252),
-    MAJOR_ISSUE("Major Issue", 0xFFFF7043),
-    MINOR_GLITCH("Minor Glitch", 0xFFFFCA28),
-    COSMETIC_POLISH("Cosmetic / Polish", 0xFF42A5F5),
-    ENHANCEMENT("Enhancement / Feature", 0xFF26A69A)
+    CRITICAL_CRASH("Critical Crash", 0xFFC0443A),
+    MAJOR_ISSUE("Major Issue", 0xFFB8592E),
+    MINOR_GLITCH("Minor Glitch", 0xFFB07A10),
+    COSMETIC_POLISH("Cosmetic / Polish", 0xFF2F6F7C),
+    ENHANCEMENT("Enhancement / Feature", 0xFF3F7A3A)
 }
 
 data class FeedbackReport(

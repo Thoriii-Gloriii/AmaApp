@@ -105,7 +105,7 @@ fun ExploreAppsScreen(
                     Text(
                         text = "Builds. Testing. Verified IP.",
                         style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Black),
-                        color = Color.White
+                        color = AmaAvocado
                     )
                     Text(
                         text = "Download early APK & iOS builds, earn tester rewards, and protect software origin.",
@@ -207,7 +207,7 @@ fun ExploreAppsScreen(
                         Text(
                             text = cat,
                             style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                            color = if (isSelected) Color(0xFF00363D) else MaterialTheme.colorScheme.onSurface,
+                            color = if (isSelected) AmaCream else MaterialTheme.colorScheme.onSurface,
                             modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp)
                         )
                     }
@@ -442,7 +442,7 @@ fun AppCardItem(
                         .weight(1f)
                         .testTag("btn_download_apk_${app.id}"),
                     shape = RoundedCornerShape(10.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D)),
+                    colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = AmaCream),
                     contentPadding = PaddingValues(vertical = 10.dp, horizontal = 12.dp)
                 ) {
                     Icon(Icons.Default.Download, contentDescription = null, modifier = Modifier.size(16.dp))

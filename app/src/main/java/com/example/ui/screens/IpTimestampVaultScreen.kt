@@ -54,7 +54,7 @@ fun IpTimestampVaultScreen(
         item {
             Surface(
                 shape = RoundedCornerShape(16.dp),
-                color = Color(0xFF0D1527),
+                color = AmaSage,
                 border = androidx.compose.foundation.BorderStroke(1.dp, CyanPrimary.copy(alpha = 0.4f)),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -62,7 +62,7 @@ fun IpTimestampVaultScreen(
                     modifier = Modifier
                         .background(
                             Brush.verticalGradient(
-                                listOf(Color(0xFF0E1A33), Color(0xFF090F1C))
+                                listOf(AmaSage, AmaCardCream)
                             )
                         )
                         .padding(18.dp)
@@ -91,7 +91,7 @@ fun IpTimestampVaultScreen(
                                 Text(
                                     text = "IP Timestamp & Anti-Clone Vault",
                                     style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Black),
-                                    color = Color.White
+                                    color = AmaAvocado
                                 )
                                 Text(
                                     text = "Decentralized Proof-of-Origin for Proprietary Apps",
@@ -104,7 +104,7 @@ fun IpTimestampVaultScreen(
                         Text(
                             text = "If any third party attempts to clone or copy your APK/IPA code, AmaApp timestamps your cryptographic SHA-256 digest into Polygon & Ethereum blocks to legally prove chronological priority.",
                             style = MaterialTheme.typography.bodyMedium,
-                            color = Color(0xFF94A3B8)
+                            color = AmaMutedGreen
                         )
 
                         Row(
@@ -113,7 +113,7 @@ fun IpTimestampVaultScreen(
                         ) {
                             Button(
                                 onClick = onRegisterIpClick,
-                                colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D)),
+                                colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = AmaCream),
                                 shape = RoundedCornerShape(8.dp),
                                 modifier = Modifier.testTag("btn_open_register_ip")
                             ) {
@@ -362,7 +362,7 @@ fun IpTimestampVaultScreen(
 
                     Surface(
                         shape = RoundedCornerShape(6.dp),
-                        color = Color(0xFF080D1A),
+                        color = AmaCardCream,
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text(

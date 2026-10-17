@@ -219,8 +219,8 @@ fun AmaAppRoot(
             ) {
                 Surface(
                     shape = RoundedCornerShape(12.dp),
-                    color = Color(0xFF0F172A),
-                    border = androidx.compose.foundation.BorderStroke(1.dp, CyanPrimary),
+                    color = AmaAvocado,
+                    border = androidx.compose.foundation.BorderStroke(1.dp, AmaOliveLight),
                     tonalElevation = 8.dp
                 ) {
                     Row(
@@ -230,7 +230,7 @@ fun AmaAppRoot(
                     ) {
                         CircularProgressIndicator(
                             progress = { uiState.downloadProgressPercent / 100f },
-                            color = CyanPrimary,
+                            color = AmaOliveLight,
                             modifier = Modifier.size(24.dp),
                             strokeWidth = 3.dp
                         )
@@ -238,12 +238,12 @@ fun AmaAppRoot(
                             Text(
                                 text = "Downloading APK package...",
                                 style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                                color = Color.White
+                                color = AmaCream
                             )
                             Text(
                                 text = "${uiState.downloadProgressPercent}% completed • Verifying SHA-256 signature",
                                 style = MaterialTheme.typography.labelSmall,
-                                color = CyanPrimaryLight
+                                color = AmaOnDarkMuted
                             )
                         }
                     }

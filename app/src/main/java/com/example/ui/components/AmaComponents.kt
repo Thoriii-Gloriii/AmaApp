@@ -238,9 +238,9 @@ fun RolePermissionBanner(
     modifier: Modifier = Modifier
 ) {
     val gradient = when (user.role) {
-        UserRole.DEVELOPER -> Brush.horizontalGradient(listOf(Color(0xFF1E1438), Color(0xFF131D38)))
-        UserRole.TESTER -> Brush.horizontalGradient(listOf(Color(0xFF0D2533), Color(0xFF131D38)))
-        UserRole.ADMIN -> Brush.horizontalGradient(listOf(Color(0xFF33141E), Color(0xFF1B1B2A)))
+        UserRole.DEVELOPER -> Brush.horizontalGradient(listOf(AmaSage, AmaCardCream))
+        UserRole.TESTER -> Brush.horizontalGradient(listOf(Color(0xFFDDE8EA), AmaCardCream))
+        UserRole.ADMIN -> Brush.horizontalGradient(listOf(Color(0xFFF0DDD3), AmaCardCream))
     }
     val accentColor = when (user.role) {
         UserRole.DEVELOPER -> VioletSecondaryLight
@@ -312,20 +312,20 @@ fun PlatformBadge(platform: AppPlatform, modifier: Modifier = Modifier) {
     val (label, bg, fg, icon) = when (platform) {
         AppPlatform.ANDROID_APK -> Quadruple(
             "Android APK / Play",
-            Color(0xFF003816),
-            Color(0xFF00E676),
+            Color(0xFFE2EBD3),
+            Color(0xFF3F7A3A),
             Icons.Default.Android
         )
         AppPlatform.IOS_IPA -> Quadruple(
             "iOS IPA / TestFlight",
-            Color(0xFF002244),
-            Color(0xFF40C4FF),
+            Color(0xFFDDE8EA),
+            Color(0xFF2F6F7C),
             Icons.Default.PhoneIphone
         )
         AppPlatform.DUAL -> Quadruple(
             "Dual Android & iOS",
-            Color(0xFF281347),
-            Color(0xFFB388FF),
+            Color(0xFFECE3D2),
+            Color(0xFF9B7920),
             Icons.Default.Devices
         )
     }
@@ -420,15 +420,15 @@ fun BlockchainCertificateCard(
 ) {
     Surface(
         shape = RoundedCornerShape(16.dp),
-        color = Color(0xFF0F172A),
-        border = androidx.compose.foundation.BorderStroke(1.5.dp, Color(0xFF00E5FF).copy(alpha = 0.5f)),
+        color = AmaSage,
+        border = androidx.compose.foundation.BorderStroke(1.5.dp, AmaOlive.copy(alpha = 0.5f)),
         modifier = modifier.fillMaxWidth()
     ) {
         Box(
             modifier = Modifier
                 .background(
                     Brush.verticalGradient(
-                        listOf(Color(0xFF0A192F), Color(0xFF090D16))
+                        listOf(AmaSage, AmaCardCream)
                     )
                 )
                 .padding(18.dp)
@@ -470,27 +470,27 @@ fun BlockchainCertificateCard(
                     )
                 }
 
-                HorizontalDivider(color = Color(0xFF1E293B))
+                HorizontalDivider(color = AmaWarmBorder)
 
                 // App & Author Info
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Text(
                         text = proof.appTitle,
                         style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                        color = Color.White
+                        color = AmaAvocado
                     )
                     Text(
                         text = "Bundle ID: ${proof.bundleId} • Dev: ${proof.developerName}",
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color(0xFF94A3B8)
+                        color = AmaMutedGreen
                     )
                 }
 
                 // Cryptographic Digest & Hashes
                 Surface(
                     shape = RoundedCornerShape(8.dp),
-                    color = Color(0xFF050B14),
-                    border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF1E293B))
+                    color = AmaCardCream,
+                    border = androidx.compose.foundation.BorderStroke(1.dp, AmaWarmBorder)
                 ) {
                     Column(
                         modifier = Modifier
@@ -501,7 +501,7 @@ fun BlockchainCertificateCard(
                         Text(
                             text = "SHA-256 APP DIGEST:",
                             style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                            color = Color(0xFF64748B)
+                            color = AmaMutedGreen
                         )
                         Text(
                             text = proof.sha256AppDigest,
@@ -517,7 +517,7 @@ fun BlockchainCertificateCard(
                         Text(
                             text = "TRANSACTION HASH (ON-CHAIN):",
                             style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                            color = Color(0xFF64748B)
+                            color = AmaMutedGreen
                         )
                         Text(
                             text = proof.transactionHash,
