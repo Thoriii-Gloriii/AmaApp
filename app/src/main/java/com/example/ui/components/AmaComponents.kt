@@ -53,24 +53,7 @@ fun AmaTopBar(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                Box(
-                    modifier = Modifier
-                        .size(38.dp)
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(
-                            Brush.linearGradient(
-                                listOf(CyanPrimary, VioletSecondary)
-                            )
-                        ),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Shield,
-                        contentDescription = "AmaApp Logo",
-                        tint = Color.White,
-                        modifier = Modifier.size(22.dp)
-                    )
-                }
+                AmaMark(size = 38.dp)
                 Column {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
@@ -92,7 +75,7 @@ fun AmaTopBar(
                         )
                     }
                     Text(
-                        text = "Builds • Feedback • IP Proof",
+                        text = "Real Apps. Real People.",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
