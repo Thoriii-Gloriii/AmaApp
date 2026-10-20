@@ -10,7 +10,10 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 enum class MainNavigationTab(val label: String, val testTag: String) {
+    HOME("Home", "nav_home"),
     EXPLORE("Explore", "nav_explore"),
+    LIBRARY("Library", "nav_library"),
+    PROFILE("Profile", "nav_profile"),
     DASHBOARD("Dashboard", "nav_dashboard"),
     COMMUNITY("Community", "nav_community"),
     IP_VAULT("IP Vault", "nav_ip_vault"),
@@ -18,11 +21,14 @@ enum class MainNavigationTab(val label: String, val testTag: String) {
 }
 
 data class AmaUiState(
-    val currentTab: MainNavigationTab = MainNavigationTab.EXPLORE,
+    val currentTab: MainNavigationTab = MainNavigationTab.HOME,
     val searchQuery: String = "",
     val selectedCategory: String = "All",
     val selectedPlatform: AppPlatform? = null,
     val selectedAppForDetail: AppListing? = null,
+    val reviewsApp: AppListing? = null,
+    val savedAppIds: Set<String> = emptySet(),
+    val downloadedAppIds: Set<String> = emptySet(),
     val selectedAppForNewBuild: AppListing? = null,
     val selectedAppForFeedback: AppListing? = null,
     val isUploadingAppDialog: Boolean = false,
@@ -76,6 +82,45 @@ class AmaAppViewModel(
 
     fun selectAppForDetail(app: AppListing?) {
         _uiState.update { it.copy(selectedAppForDetail = app) }
+    }
+
+    fun openReviews(app: AppListing?) {
+        _uiState.update { it.copy(reviewsApp = app) }
+    }
+
+    fun toggleSaved(app: AppListing) {
+        val alreadySaved = app.id in _uiState.value.savedAppIds
+        _uiState.update {
+            it.copy(
+                savedAppIds = if (alreadySaved) it.savedAppIds - app.id else it.savedAppIds + app.id
+            )
+        }
+        showSnackbar(if (alreadySaved) "Removed ${app.title} from Saved" else "Saved ${app.title}")
+    }
+
+    fun clearFilters() {
+        _uiState.update {
+            it.copy(searchQuery = "", selectedCategory = "All", selectedPlatform = null)
+        }
+    }
+
+    fun submitReview(app: AppListing, rating: Int, comment: String) {
+        if (rating !in 1..5) {
+            showSnackbar("Choose a star rating first.")
+            return
+        }
+        val trimmed = comment.trim()
+        repository.submitFeedback(
+            appId = app.id,
+            type = FeedbackType.USABILITY,
+            severity = FeedbackSeverity.ENHANCEMENT,
+            rating = rating,
+            title = trimmed.lineSequence().firstOrNull().orEmpty().take(60).ifBlank { "Review" },
+            description = trimmed,
+            deviceModel = android.os.Build.MODEL ?: "Android device",
+            osVersion = "Android " + android.os.Build.VERSION.RELEASE
+        )
+        showSnackbar("Thanks! Your review of ${app.title} was submitted.")
     }
 
     fun openUploadAppDialog(open: Boolean) {
@@ -212,8 +257,13 @@ class AmaAppViewModel(
             delay(200)
             _uiState.update { it.copy(isDownloadingSimulated = false, downloadProgressPercent = 0) }
 
-            val target = if (isDirectApk) "Direct APK (${build.binarySizeMb} MB)" else "Google Play Beta Track"
+            val target = when {
+                isDirectApk -> "Direct APK (${build.binarySizeMb} MB)"
+                app.platform == AppPlatform.IOS_IPA -> "TestFlight"
+                else -> "Google Play Beta Track"
+            }
             repository.recordDownload(app.id, build.versionName, target)
+            _uiState.update { it.copy(downloadedAppIds = it.downloadedAppIds + app.id) }
             showSnackbar("Downloaded ${app.title} ${build.versionName} via $target. Ready to test!")
         }
     }

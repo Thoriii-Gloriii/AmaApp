@@ -90,7 +90,7 @@ fun AppDetailDialog(
                 if (blockchainProof != null) {
                     Surface(
                         shape = RoundedCornerShape(12.dp),
-                        color = Color(0xFF091424),
+                        color = PaleSage,
                         border = androidx.compose.foundation.BorderStroke(1.dp, CyanPrimary.copy(alpha = 0.4f)),
                         modifier = Modifier.fillMaxWidth()
                     ) {
@@ -173,7 +173,7 @@ fun AppDetailDialog(
                                 Button(
                                     onClick = { onDownloadClick(build, true) },
                                     shape = RoundedCornerShape(8.dp),
-                                    colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D)),
+                                    colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Cream),
                                     modifier = Modifier.weight(1f)
                                 ) {
                                     Icon(Icons.Default.Download, contentDescription = null, modifier = Modifier.size(16.dp))
@@ -334,7 +334,7 @@ fun UploadAppDialog(
                                 )
                             }
                         },
-                        colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D)),
+                        colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Cream),
                         modifier = Modifier.testTag("btn_submit_post_app")
                     ) {
                         Text("Post & Timestamp IP", fontWeight = FontWeight.Bold)
@@ -434,7 +434,7 @@ fun UploadBuildDialog(
                                 rolloutSlider.toInt()
                             )
                         },
-                        colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D))
+                        colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Cream)
                     ) {
                         Text("Deploy Build", fontWeight = FontWeight.Bold)
                     }
@@ -558,7 +558,7 @@ fun FeedbackDialog(
                                 onSubmit(selectedType, selectedSeverity, rating, title, description, deviceModel, osVersion)
                             }
                         },
-                        colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D)),
+                        colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Cream),
                         modifier = Modifier.testTag("btn_submit_feedback")
                     ) {
                         Text("Send Feedback", fontWeight = FontWeight.Bold)
@@ -633,7 +633,7 @@ fun NewThreadDialog(
                                 onSubmit(title, content, category)
                             }
                         },
-                        colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D))
+                        colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Cream)
                     ) {
                         Text("Post Topic", fontWeight = FontWeight.Bold)
                     }
@@ -710,7 +710,7 @@ fun RegisterIpDialog(
                                 onSubmit(title, bundleId, codeSnippet)
                             }
                         },
-                        colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D)),
+                        colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Cream),
                         modifier = Modifier.testTag("btn_confirm_register_ip")
                     ) {
                         Text("Calculate & Anchor", fontWeight = FontWeight.Bold)
@@ -739,7 +739,7 @@ fun BlockchainCertificateDialog(
             Button(
                 onClick = onDismiss,
                 shape = RoundedCornerShape(10.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D))
+                colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Cream)
             ) {
                 Text("Close Certificate", fontWeight = FontWeight.Bold)
             }

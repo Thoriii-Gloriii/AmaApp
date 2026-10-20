@@ -7,12 +7,12 @@ enum class AppPlatform(val label: String, val badgeColor: Long) {
 }
 
 enum class AppStatus(val label: String, val colorHex: Long) {
-    ACTIVE_BETA("Active Beta", 0xFF00E676),
-    OPEN_TESTING("Open Testing", 0xFF00E5FF),
-    CLOSED_TESTING("Closed Testing", 0xFFFFAB00),
-    STAGED_ROLLOUT("Staged Rollout", 0xFF7C4DFF),
-    UNDER_REVIEW("Under Review", 0xFF9E9E9E),
-    FLAGGED("Flagged / Suspended", 0xFFFF5252)
+    ACTIVE_BETA("Active Beta", 0xFF2E7D32),
+    OPEN_TESTING("Open Testing", 0xFF00838F),
+    CLOSED_TESTING("Closed Testing", 0xFFB26A00),
+    STAGED_ROLLOUT("Staged Rollout", 0xFF5E35B1),
+    UNDER_REVIEW("Under Review", 0xFF6B6B6B),
+    FLAGGED("Flagged / Suspended", 0xFFC62828)
 }
 
 data class AppBuild(
@@ -63,8 +63,8 @@ enum class FeedbackType(val label: String) {
 enum class FeedbackSeverity(val label: String, val colorHex: Long) {
     CRITICAL_CRASH("Critical Crash", 0xFFFF5252),
     MAJOR_ISSUE("Major Issue", 0xFFFF7043),
-    MINOR_GLITCH("Minor Glitch", 0xFFFFCA28),
-    COSMETIC_POLISH("Cosmetic / Polish", 0xFF42A5F5),
+    MINOR_GLITCH("Minor Glitch", 0xFFB28900),
+    COSMETIC_POLISH("Cosmetic / Polish", 0xFF1E6FB8),
     ENHANCEMENT("Enhancement / Feature", 0xFF26A69A)
 }
 
