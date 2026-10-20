@@ -49,7 +49,7 @@ fun ExploreAppsScreen(
     onUploadAppClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val categories = listOf("All", "Media & Video", "Security & Tools", "Productivity", "FinTech", "AI Tools")
+    val categories = listOf("All") + apps.map { it.category }.distinct()
 
     val filteredApps = apps.filter { app ->
         val matchesSearch = app.title.contains(searchQuery, ignoreCase = true) ||
@@ -66,63 +66,14 @@ fun ExploreAppsScreen(
             .testTag("explore_apps_screen"),
         contentPadding = PaddingValues(bottom = 96.dp)
     ) {
-        // Hero Header Banner
+        // Title
         item {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(180.dp)
-            ) {
-                // Banner Image
-                Image(
-                    painter = painterResource(id = R.drawable.banner_amaapp_hero),
-                    contentDescription = "AmaApp Platform Banner",
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
-                )
-
-                // Gradient Overlay
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(
-                            Brush.verticalGradient(
-                                listOf(
-                                    Color.Transparent,
-                                    MaterialTheme.colorScheme.background.copy(alpha = 0.85f),
-                                    MaterialTheme.colorScheme.background
-                                )
-                            )
-                        )
-                )
-
-                // Banner Copy
-                Column(
-                    modifier = Modifier
-                        .align(Alignment.BottomStart)
-                        .padding(16.dp)
-                ) {
-                    Text(
-                        text = "Builds. Testing. Verified IP.",
-                        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Black),
-                        color = Color.White
-                    )
-                    Text(
-                        text = "Download early APK & iOS builds, earn tester rewards, and protect software origin.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = CyanPrimaryLight
-                    )
-                }
-            }
-        }
-
-        // Active Role Permissions Callout
-        item {
-            PaddingValues(horizontal = 16.dp, vertical = 6.dp).let {
-                Box(modifier = Modifier.padding(it)) {
-                    RolePermissionBanner(user = currentUser)
-                }
-            }
+            Text(
+                text = "Explore",
+                style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.onBackground,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
+            )
         }
 
         // Search Input
@@ -207,7 +158,7 @@ fun ExploreAppsScreen(
                         Text(
                             text = cat,
                             style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                            color = if (isSelected) Color(0xFF00363D) else MaterialTheme.colorScheme.onSurface,
+                            color = if (isSelected) Cream else MaterialTheme.colorScheme.onSurface,
                             modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp)
                         )
                     }
@@ -442,7 +393,7 @@ fun AppCardItem(
                         .weight(1f)
                         .testTag("btn_download_apk_${app.id}"),
                     shape = RoundedCornerShape(10.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Color(0xFF00363D)),
+                    colors = ButtonDefaults.buttonColors(containerColor = CyanPrimary, contentColor = Cream),
                     contentPadding = PaddingValues(vertical = 10.dp, horizontal = 12.dp)
                 ) {
                     Icon(Icons.Default.Download, contentDescription = null, modifier = Modifier.size(16.dp))
